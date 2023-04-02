@@ -12,5 +12,21 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
-}
+  return tutorials.map((string) => {
+		//iterates through all strings
+    const wordArray = string.split(" ");
+		//For each string, splits string into array of words 
+		//=> ["what", "does", "the", "this", "keyword", "mean?"]
+    const newWords = wordArray.map((word) => {
+		//iterates through each word in the above array
+        return word.charAt(0).toUpperCase() + word.slice(1);
+				//For each word, returns first letter capitalized + remainder of word 
+				//=> "W" + "hat"
+    });
+    return newWords.join(" ");
+		//Joins all returned words back into one string
+  });
+	//Pushes modified strings to new array
+};
+
+const newTutorials = titleCased(tutorials);
